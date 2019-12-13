@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Insert title here</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<style>
+    form{
+        display: none;
+    }
+</style>
+<body>
+<div class="container">
+    <form name="myform" class="needs-validation" novalidate>
+        <h2 style="text-align: center; background-color: #d5d5d5;color: dodgerblue;">Registration Page</h2>
+        <div class="form-group">
+            <label for="uname">Employee name:</label>
+            <input type="text" class="form-control" id="uname" placeholder="Enter employee name" name="ename" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group">
+            <label for="eid">Employee id:</label>
+            <input type="text" class="form-control" id="eid" placeholder="Enter employee id" name="eid" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group">
+            <label for="typ">Type:</label>
+            <input type="text" class="form-control" id="typ" placeholder="Enter type" name="type" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of birth:</label>
+            <input type="date" class="form-control" id="dob" placeholder="Enter dob" name="dob" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group">
+            <label for="exp">Experience:</label>
+            <input type="text" class="form-control" id="exp" placeholder="Enter experience" name="exp" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group">
+            <label for="doj">Date of joining:</label>
+            <input type="date" class="form-control" id="doj" placeholder="Enter date of joining" name="doj" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+
+        <button type="button" id="bt" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<div class="container" id="tbldiv">
+    <h2 style="text-align: center;background-color: #d5d5d5;color: dodgerblue">Employee Details</h2>
+    <table class="table table-hover" id="tbl">
+        <thead>
+        <tr>
+            <th>Emp Id</th>
+            <th>Emp Name</th>
+            <th>Type</th>
+            <th>Emp Dob</th>
+            <th>Experience</th>
+            <th>Date of joining</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="tb">
+        </tbody>
+    </table>
+    <button type="button" id="bt8" class="btn btn-primary">Add New detalis</button>
+</div>
+<script type="text/javascript" src="registerEmp.js"></script>
+
+</body>
+</html>
