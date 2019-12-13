@@ -17,32 +17,33 @@
     }, false);
 })();
 
-
+// fatching json data from employeee.json file
 $(document).ready(function(){
     $.getJSON('employee.json', function(data) {
-        console.log(data.employee);
         var temp = "";
         data.employee.forEach((u)=> {
-            console.log(u.ename+" "+u.type);
+            //calling dynamically created table and passing all json data into dynamic table
         preptable(u.eid , u.ename , u.type , u.dob , u.exp , u.doj);
     });
     });
 });
 
+// hide and show form field and table after click the button
 $('#bt8').click(function () {
     $('form').show();
     $('#tbldiv').toggle();
     $('#bt8').toggle();
 });
-//var arr = [];
+
 $('#bt').click(function () {
-    rege();
+    // calling function which has form data in json formate
+    getdataFromForm();
     $('form').toggle();
     $('#tbldiv').toggle();
     $('#bt8').toggle();
 });
-function rege(){
 
+function getdataFromForm(){
     var empid = document.myform.eid.value;
     var empname = document.myform.ename.value;
     var emptype = document.myform.type.value;
@@ -50,26 +51,22 @@ function rege(){
     var empexp = document.myform.exp.value;
     var empdoj = document.myform.doj.value;
 
-    console.log(empid+" "+empname+" "+emptype+" "+empdob+" "+empexp+" "+empdoj);
+    // creating object for form data
     var obj = {eid : empid, ename: empname, type : emptype, dob : empdob, exp : empexp, doj : empdoj};
-    console.log(obj);
+
+    // convert object in json formate and store in local storage
     localStorage.std = JSON.stringify(obj);
-    console.log(localStorage.std);
+
+    //calling function which is store json data in dynamic table
     init(localStorage.std);
 }
 
 function init(detail){
-    if(localStorage.std){
+    if(localStorage.std !=null){
         stdarr = JSON.parse(localStorage.std);
-        var id = stdarr.eid;
-        var name = stdarr.ename;
-        var type = stdarr.type;
-        var dob = stdarr.dob;
-        var exp = stdarr.exp;
-        var doj = stdarr.doj;
-        // console.log(user+" "+pass);
-        preptable(id , name , type , dob , exp , doj);
 
+        //passing json data in dynamically created table
+        preptable(stdarr.eid , stdarr.ename , stdarr.type , stdarr.dob , stdarr.exp , stdarr.doj);
     }
 }
 
@@ -82,23 +79,14 @@ function preptable(id , name , type , dob , exp , doj){
     var td5 = document.createElement('td');
     var td6 = document.createElement('td');
     var td7 = document.createElement('td');
-    td1.innerHTML = id;
-    td2.innerHTML = name;
-    td3.innerHTML = type;
-    td4.innerHTML = dob;
-    td5.innerHTML = exp;
-    td6.innerHTML = doj;
+    td1.innerHTML = id;td2.innerHTML = name;td3.innerHTML = type;td4.innerHTML = dob;
+    td5.innerHTML = exp;td6.innerHTML = doj;
     td7.innerHTML = '<button class = "deltrow" type="button">delete</button>';
-    tr1.append(td1);
-    tr1.append(td2);
-    tr1.append(td3);
-    tr1.append(td4);
-    tr1.append(td5);
-    tr1.append(td6);
-    tr1.append(td7);
+    tr1.append(td1);tr1.append(td2);tr1.append(td3); tr1.append(td4);tr1.append(td5);tr1.append(td6);tr1.append(td7);
     document.getElementById('tb').append(tr1);
 }
 
+//htis code is use for deleting one row at a time after click the button
 $(document).on('click','.deltrow',function () {
     $(this).parents('tr').remove();
 });
